@@ -13,14 +13,6 @@ const lightbox = new SimpleLightbox('.gallery-item a', {
 });
 import { createGallery, addElToHTML } from './render-functions';
 
-export const addLoader = loaderSpan => {
-  loaderSpan.classList.add('loader');
-};
-
-export const removeLoader = loaderSpan => {
-  loaderSpan.classList.remove('loader');
-};
-
 export const requestFetch = (galleryList, loaderSpan, inputValueRequest) => {
   fetch(
     `https://pixabay.com/api/?key=45720835-cd950b20c56733b9244c71a24&image_type=photo&orientation=horizontal&q=${inputValueRequest}&safesearch=true&per_page=9`
@@ -47,9 +39,11 @@ export const requestFetch = (galleryList, loaderSpan, inputValueRequest) => {
       lightbox.refresh();
     })
     .catch(err => {
-      console.log(err);
+      iziToast.error({
+        message: `Oops! Something went wrong. Erorr: ${err}`,
+      });
     })
     .finally(() => {
-      removeLoader(loaderSpan);
+      loaderSpan.classList.remove('loader');
     });
 };

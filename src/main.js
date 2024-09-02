@@ -1,4 +1,4 @@
-import { addLoader, requestFetch } from './js/pixabay-api';
+import { requestFetch } from './js/pixabay-api';
 import { cleanElHTML } from './js/render-functions';
 
 const form = document.querySelector('.form');
@@ -10,6 +10,6 @@ form.addEventListener('submit', event => {
   const inputValue = form.elements.user_query.value.trim();
 
   cleanElHTML(galleryList);
-  addLoader(loaderSpan);
+  loaderSpan.classList.add('loader');
   requestFetch(galleryList, loaderSpan, inputValue);
 });
