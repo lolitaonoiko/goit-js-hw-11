@@ -130,7 +130,6 @@ img {
   border: 1px solid #e5e5e5;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
-  box-shadow: 0px 0px 21px -1px rgba(133, 129, 133, 1);
   width: 360px;
   height: 48px;
   background-color: #fff;
@@ -141,6 +140,12 @@ img {
 .gallery-img {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+}
+
+.gallery-item:hover .inf-box {
+  box-shadow: 0px 0px 21px -1px rgba(133, 129, 133, 1);
+}
+.gallery-item:hover .gallery-img {
   box-shadow: 0px 0px 21px -1px rgba(133, 129, 133, 1);
 }
 .img-prop-value {
